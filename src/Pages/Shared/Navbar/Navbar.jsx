@@ -31,7 +31,7 @@ const Navbar = () => {
         <Link to="/secret">Secret</Link>
       </li>
       <li>
-        <Link to="/">
+        <Link to="/dashboard/mycart">
           
            <RiShoppingCartFill></RiShoppingCartFill>
             <div className="badge -mt-5">+{cart?.length || 0}</div>
@@ -45,9 +45,9 @@ const Navbar = () => {
             <span>{user?.displayName}</span>
           </li>
           <li>
-            <button onClick={handleLogOut} className="btn btn-ghost">
+            <Link onClick={handleLogOut}>
               LogOut
-            </button>
+            </Link>
           </li>
         </>
       ) : (

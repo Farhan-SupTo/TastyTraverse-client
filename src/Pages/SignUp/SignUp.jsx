@@ -4,6 +4,7 @@ import { Link, useNavigate,  } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 const SignUp = () => {
  const {createUser,updateUserProfile} =useContext(AuthContext)
@@ -14,45 +15,46 @@ const SignUp = () => {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors },
   } = useForm()
+
   const onSubmit = (data) => {
-    console.log(data)
+    // console.log(data)
     createUser(data.email,data.password)
     .then(result=>{ 
       const loggedUser =result.user 
       console.log(loggedUser)
       updateUserProfile(data.name,data.photo)
       .then(()=>{
-        console.log('user profile updated')
-      reset()
-      Swal.fire({
-        title: "User updated successfully",
-        showClass: {
-          popup: `
-            animate__animated
-            animate__fadeInUp
-            animate__faster
-          `
-        },
-        hideClass: {
-          popup: `
-            animate__animated
-            animate__fadeOutDown
-            animate__faster
-          `
-        }
-      });
-      navigate('/')
+        const savedUser ={email:data.email,name:data.name}
+        fetch('http://localhost:5000/users',{
+          method:'POST',
+          headers: {
+             'content-type':'application/json',
+          },
+          body:JSON.stringify(savedUser)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          if(data.insertedId){
+            reset()
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Your work has been saved",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            navigate('/');
+          }
+
+        })
       })
-      .catch(error=>{
-        console.log(error.message)
-      })
+      .catch(error => console.log(error))
     })
   }
 
-  console.log(watch("example"))
+ 
 
     return (
       <>
@@ -114,6 +116,7 @@ const SignUp = () => {
               </div>
               <p className='text-orange-400 font-medium text-center mb-3'><small>Already Registered? </small><Link to='/login'>Go to log in</Link></p>
             </form>
+            <SocialLogin></SocialLogin>
            
           </div>
         </div>
