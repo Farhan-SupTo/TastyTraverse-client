@@ -7,7 +7,6 @@ import { FaHome, FaShopify, FaUser, FaUtensilSpoon } from "react-icons/fa";
 import { TfiMenuAlt } from "react-icons/tfi";
 import {
   MdOutlinePermContactCalendar,
-  MdPermContactCalendar,
 } from "react-icons/md";
 import UseCart from "../hooks/UseCart";
 
