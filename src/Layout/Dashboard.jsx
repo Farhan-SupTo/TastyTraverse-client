@@ -9,12 +9,14 @@ import {
   MdOutlinePermContactCalendar,
 } from "react-icons/md";
 import UseCart from "../hooks/UseCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const [cart] = UseCart();
 
   // todo load data from server to dynamic isadmin from data
-  const isAdmin = true;
+  // const isAdmin = true;
+  const [isAdmin] =useAdmin()
 
   return (
     <div className="drawer lg:drawer-open">
