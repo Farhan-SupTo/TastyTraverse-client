@@ -49,12 +49,12 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/reservation">
+                <NavLink to="/dashboard/additem">
                   <FaUtensilSpoon></FaUtensilSpoon>Add Items
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/payment">
+                <NavLink to="/dashboard/manageitem">
                  <TfiMenuAlt></TfiMenuAlt>Manage Items
                 </NavLink>
               </li>

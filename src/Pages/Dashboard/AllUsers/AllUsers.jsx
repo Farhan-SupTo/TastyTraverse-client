@@ -3,10 +3,14 @@ import { FaTrashAlt } from "react-icons/fa";
 import { MdAdminPanelSettings } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 
 
 const AllUsers = () => {
+  <Helmet>
+  <title>Tasty Traverse | All User</title>
+</Helmet>
   const [axiosSecure] =useAxiosSecure()
 
     //  const {refetch,data: users= [] } =useQuery(["users"], async () =>{
@@ -47,6 +51,9 @@ const AllUsers = () => {
 
     return (
         <div className="w-2/3">
+            <Helmet>
+  <title>Tasty Traverse | All User</title>
+</Helmet>
            <h3 className='text-4xl font-semibold'>Total user: {users.length}</h3>
 
            <div className="overflow-x-auto">
@@ -76,7 +83,7 @@ const AllUsers = () => {
             }
             </td>
         <td>
-        <button onClick={()=>handleDelete(item)} className="btn btn-ghost btn-sm bg-red-500 text-white"><FaTrashAlt></FaTrashAlt></button>
+        <button className="btn btn-ghost btn-sm bg-red-500 text-white"><FaTrashAlt></FaTrashAlt></button>
         </td>
       </tr>)
         }
