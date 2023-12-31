@@ -44,7 +44,7 @@ const Dashboard = () => {
             <>
   <div className="uppercase">
   <li>
-                <NavLink to="/dashboard/home">
+                <NavLink to="/dashboard/adminhome">
                   <IoHomeSharp></IoHomeSharp>Admin Home
                 </NavLink>
               </li>

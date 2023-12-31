@@ -71,7 +71,7 @@ setDisabled(false)
       <Helmet>
       <title>Tasty Traverse | Login</title>
     </Helmet>
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero bg-base-200">
   <div className="hero-content flex-col lg:flex-row">
     <div className="text-center lg:text-left md:w-1/2">
       <h1 className="text-5xl font-bold">Login now!</h1>
@@ -100,11 +100,12 @@ setDisabled(false)
           </label>
           <input type="text" onBlur={handleValidateCaptcha} name='captcha' placeholder="type the text above" className="input input-bordered" required />
         </div>
-        <div className="form-control  mt-6">
+        <div className="form-control">
          <input disabled={disabled}  className="btn font-bold btn-primary" type="submit" value="Login" />
         </div>
         <p className='text-orange-400 font-medium text-center mb-3'><small>New here? </small><Link to='/signUp'>Create an Account</Link></p>
       </form>
+      <p className=' font-medium text-center'><small>Or sign in with</small></p>
       <SocialLogin></SocialLogin>
      
     </div>
