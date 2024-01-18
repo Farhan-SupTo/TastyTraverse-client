@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import Cover from '../../Shared/Cover/Cover';
 import menuImage from '../../../assets/menu/menu-bg.jpg'
-import coverImgSalads from '../../../assets/menu/salad-bg.jpg'
+import coverImgsalads from '../../../assets/menu/salad-bg.jpg'
 import coverImgPizza from '../../../assets/menu/pizza-bg.jpg'
 import coverImgSoup from '../../../assets/menu/soup-bg.jpg'
 import coverImgDessert from '../../../assets/menu/dessert-bg.jpeg'
@@ -32,7 +32,7 @@ const Menu = () => {
            <MenuCategory
            item={salad}
            title={"salad"}
-           img={coverImgSalads}>
+           img={coverImgsalads}>
 
            </MenuCategory>
            {/* Pizz menu item */}

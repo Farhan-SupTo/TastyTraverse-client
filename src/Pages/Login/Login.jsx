@@ -1,5 +1,5 @@
 
-
+import { BsGithub, BsGoogle } from "react-icons/bs";
 import { useContext, useEffect, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../Providers/AuthProviders';
@@ -7,11 +7,15 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
+import bgImg from "../../../src/assets/others/authentication.png"
+import authenticationImg from "../../../src/assets/others/authentication2.png"
+import { FaFacebookF } from 'react-icons/fa';
+
 
 const Login = () => {
 
     const [disabled,setDisabled] =useState(true)
-    const {signIn} =useContext(AuthContext)
+    const {signIn,googleSignIn} =useContext(AuthContext)
     const location =useLocation()
     const navigate =useNavigate()
 
@@ -71,14 +75,13 @@ setDisabled(false)
       <Helmet>
       <title>Tasty Traverse | Login</title>
     </Helmet>
-        <div className="hero bg-base-200">
-  <div className="hero-content flex-col lg:flex-row">
+        <div className="hero bg-base-200 min-h-screen lg:p-[80px]" style={{backgroundImage: `url(${bgImg})`}}>
+  <div className="hero-content flex-col lg:flex-row w-full h-2/4 border-[3px] border-gray-300 drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]">
     <div className="text-center lg:text-left md:w-1/2">
-      <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+    <img src={authenticationImg} alt="" />
     </div>
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form onSubmit={handleLogin} className="card-body">
+      <form onSubmit={handleLogin} className="card-body text-gray-700">
         <div className="form-control">
           <label className="label">
             <span className="label-text font-bold">Email</span>
@@ -105,8 +108,21 @@ setDisabled(false)
         </div>
         <p className='text-orange-400 font-medium text-center mb-3'><small>New here? </small><Link to='/signUp'>Create an Account</Link></p>
       </form>
-      <p className=' font-medium text-center'><small>Or sign in with</small></p>
-      <SocialLogin></SocialLogin>
+      
+      <div className="flex flex-col items-center gap-3 mx-auto">
+            <p className="text-gray-700 font-semibold">Or sign in with</p>
+            <div className="flex gap-6">
+                <div className="rounded-full p-2 border-2 border-gray-700 hover:border-[#D1A054] text-gray-700 hover:text-[#D1A054] duration-200">
+                    <FaFacebookF/>
+                </div>
+                <div onClick={googleSignIn} className="rounded-full p-2 border-2 border-gray-700 hover:border-[#D1A054] text-gray-700 hover:text-[#D1A054] duration-200">
+                    <BsGoogle/>
+                </div>
+                <div className="rounded-full p-2 border-2 border-gray-700 hover:border-[#D1A054] text-gray-700 hover:text-[#D1A054] duration-200">
+                    <BsGithub/>
+                </div>
+            </div>
+            </div>
      
     </div>
   </div>
@@ -116,3 +132,11 @@ setDisabled(false)
 };
 
 export default Login;
+
+
+
+
+
+
+
+

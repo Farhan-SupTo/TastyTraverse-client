@@ -30,7 +30,7 @@ const Order = () => {
     
 <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
   <TabList>
-    <Tab>Salad</Tab>
+    <Tab>salad</Tab>
     <Tab>Pizza</Tab>
     <Tab>Soup</Tab>
     <Tab>Dessert</Tab>

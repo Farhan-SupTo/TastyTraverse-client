@@ -11,17 +11,20 @@ import sliderImg5 from '../../../assets/home/slide5.jpg'
 import 'swiper/css';
 import 'swiper/css/pagination';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
-import AboutBangBang from '../../../components/AboutBangBang/AboutBangBang';
+import { Link } from 'react-router-dom';
 
 const Category = () => {
     return (
-    <section>
+    <section className=' mb-6 md:mb-none md:my-[80px]'>
+        <div className='mx-2'>
         <SectionTitle   headings={"Order Online"}
             subHeadings={"From 11:00am to 10:00pm"}
             >
           
         </SectionTitle>
             <Swiper
+            loop={true}
+            navigation={true}
         slidesPerView={4}
         spaceBetween={30}
         centeredSlides={true}
@@ -30,28 +33,46 @@ const Category = () => {
         }}
         modules={[Pagination]}
         className="mySwiper"
+        breakpoints={{
+            320: {
+              slidesPerView: 2, // Show only one slide for small screens (320px and up)
+            },
+            768: {
+              slidesPerView: 3, // Show 2 slides for medium screens (768px and up)
+            },
+            1200: {
+              slidesPerView: 4, // Show 4 slides for large screens (1200px and up)
+            },
+          }}
       >
-        <SwiperSlide className='mb-10'>
-            <img src={sliderImg1} alt="" />
-            <h3 className=' uppercase text-center text-4xl -mt-16 text-white shadow-md'>salad</h3>
+        <SwiperSlide className='mb-10 relative text-center'>
+            <Link to='order/salad'>
+            <img className='w-full' src={sliderImg1} alt="" />
+            <h3 className='text-white absolute font-semibold text-4xl bottom-0 py-6 text-center bg-black bg-opacity-30 drop-shadow-xl w-full'>salad</h3>
+            </Link>
         </SwiperSlide>
         <SwiperSlide>
-            <img src={sliderImg2} alt="" />
-            <h3 className=' uppercase text-center text-4xl -mt-16 text-white shadow-md'>pizzas</h3>
+            <Link to='order/pizza'>
+            <img className='w-full' src={sliderImg2} alt="" />
+            <h3 className='text-white absolute font-semibold text-4xl bottom-0 py-6 text-center bg-black bg-opacity-30 drop-shadow-xl w-full'>pizzas</h3></Link>
             </SwiperSlide>
         <SwiperSlide>
-            <img src={sliderImg3} alt="" />
-            <h3 className=' uppercase text-center text-4xl -mt-16 text-white shadow-md'>Soup</h3>
+            <Link to='order/soup'>
+            <img className='w-full' src={sliderImg3} alt="" />
+            <h3 className='text-white absolute font-semibold text-4xl bottom-0 py-6 text-center bg-black bg-opacity-30 drop-shadow-xl w-full'>Soup</h3></Link>
             </SwiperSlide>
         <SwiperSlide>
-            <img src={sliderImg4} alt="" />
-            <h3 className=' uppercase text-center text-4xl -mt-16 text-white shadow-md'>Desert</h3>
+            <Link to='order/dessert'>
+            <img className='w-full' src={sliderImg4} alt="" />
+            <h3 className='text-white absolute font-semibold text-4xl bottom-0 py-6 text-center bg-black bg-opacity-30 drop-shadow-xl w-full'>Desert</h3></Link>
         </SwiperSlide>
         <SwiperSlide>
-            <img src={sliderImg5} alt="" />
-            <h3 className=' uppercase text-center text-4xl -mt-16 text-white shadow-md'>salad</h3>
+            <Link to='order/drinks'>
+            <img className='w-full' src={sliderImg5} alt="" />
+            <h3 className='text-white absolute font-semibold text-4xl bottom-0 py-6 text-center bg-black bg-opacity-30 drop-shadow-xl w-full'>drinks</h3></Link>
         </SwiperSlide>
       </Swiper>
+      </div>
     </section>
     
     );

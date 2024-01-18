@@ -43,7 +43,7 @@ const AuthProviders = ({children}) => {
            setUser(currentUser)
         //    console.log('currentUser',currentUser)
          if(currentUser){
-           axios.post('http://localhost:5000/jwt',{
+           axios.post('https://tasty-traverse-server.vercel.app/jwt',{
                email:currentUser.email
            })
            .then(data=>{

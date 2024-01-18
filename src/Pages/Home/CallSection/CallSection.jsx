@@ -1,7 +1,9 @@
 const CallSection = () => {
     return (
-        <div>
-            <h1 className="text-4xl text-center bg-black text-white py-24 px-80">Call Us: +88 0192345678910</h1>
+        <div className="mt-6 md:mt-[80px]">
+            <div className="bg-black rounded-sm text-center p-6 md:p-[60px]">
+                <h1 className="text-white text-xl md:text-4xl font-extrabold uppercase w-full">Call Us: <br className="md:hidden"/> +88 0192345678910</h1>
+            </div>
         </div>
     );
 };

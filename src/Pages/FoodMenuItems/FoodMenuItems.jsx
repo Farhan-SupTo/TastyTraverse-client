@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import MenuItems from "../Shared/MenuItems/MenuItems";
 import useMenu from "../../hooks/UseMenu";
+import { Link } from "react-router-dom";
 
 const FoodMenuItems = () => {
 
@@ -36,7 +37,8 @@ const FoodMenuItems = () => {
            }
         </div>
         <div className="text-center">
-        <button className="btn btn-outline border-0 mt-4 border-b-4">Order Now</button>
+            <Link to='/order/salad'> <button className="btn btn-outline border-0 mt-4 border-b-4">Order Now</button></Link>
+        
         </div>
 </section>
     );

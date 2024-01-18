@@ -15,7 +15,7 @@ const Food_Cart = ({item}) => {
 console.log(item)
 if(user && user.email){
   const OrderCartItem ={foodMenuID:_id,name,image,price,email:user.email}
-  fetch('http://localhost:5000/carts',{
+  fetch('https://tasty-traverse-server.vercel.app/carts',{
     method:'POST',
     headers:{
       'content-type':'application/json'

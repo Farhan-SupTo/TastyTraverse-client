@@ -27,7 +27,7 @@ const SignUp = () => {
       updateUserProfile(data.name,data.photo)
       .then(()=>{
         const savedUser ={email:data.email,name:data.name}
-        fetch('http://localhost:5000/users',{
+        fetch('https://tasty-traverse-server.vercel.app/users',{
           method:'POST',
           headers: {
              'content-type':'application/json',

@@ -80,7 +80,7 @@ const AddItem = () => {
               <option disabled>
               Pick One
               </option>
-              <option>Salad</option>
+              <option>salad</option>
               <option>Pizza</option>
               <option>Soup</option>
               <option>Desi</option>
