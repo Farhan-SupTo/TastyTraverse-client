@@ -9,7 +9,7 @@ const UseCart = () =>{
     const [axiosSecure] = useAxiosSecure();
 
     const { refetch,data: cart =[]} = useQuery({
-        queryKey: ['carts',user?.email],
+        queryKey: ['cart',user?.email],
         enabled: !loading,
         // queryFn: async ()=>{
         //     const res = await fetch(`https://tasty-traverse-server.vercel.app/carts?email=${user.email}`,{
@@ -21,7 +21,7 @@ const UseCart = () =>{
 
         // }
         queryFn: async () => {
-            const res = await axiosSecure(`/carts?email=${user?.email}`)
+            const res = await axiosSecure.get(`/carts?email=${user?.email}`)
             // console.log('res from axios', res)
             return res.data;
         }
