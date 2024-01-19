@@ -44,7 +44,7 @@ const SocialLogin = () => {
     <div>
       <div className="divider divider-horizontal"></div>
       <div className="text-center my-4">
-        <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline">
+        <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline  hover:border-[#D1A054] text-gray-700 hover:text-[#D1A054] duration-200">
             <FaGoogle></FaGoogle>
         </button>
       </div>

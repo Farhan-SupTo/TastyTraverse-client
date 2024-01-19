@@ -109,16 +109,17 @@ setDisabled(false)
         <p className='text-orange-400 font-medium text-center mb-3'><small>New here? </small><Link to='/signUp'>Create an Account</Link></p>
       </form>
       
-      <div className="flex flex-col items-center gap-3 mx-auto">
+      
+      <div className="flex flex-col  gap-3 mx-auto">
             <p className="text-gray-700 font-semibold">Or sign in with</p>
-            <div className="flex gap-6">
-                <div className="rounded-full p-2 border-2 border-gray-700 hover:border-[#D1A054] text-gray-700 hover:text-[#D1A054] duration-200">
+            <div className="flex items-center gap-6">
+                <div className="btn btn-circle btn-outline  hover:border-[#D1A054] text-gray-700 hover:text-[#D1A054] duration-200">
                     <FaFacebookF/>
                 </div>
-                <div onClick={googleSignIn} className="rounded-full p-2 border-2 border-gray-700 hover:border-[#D1A054] text-gray-700 hover:text-[#D1A054] duration-200">
-                    <BsGoogle/>
+                <div>
+                <SocialLogin></SocialLogin>
                 </div>
-                <div className="rounded-full p-2 border-2 border-gray-700 hover:border-[#D1A054] text-gray-700 hover:text-[#D1A054] duration-200">
+                <div className="rounded-full btn btn-circle btn-outline hover:border-[#D1A054] text-gray-700 hover:text-[#D1A054] duration-200">
                     <BsGithub/>
                 </div>
             </div>

@@ -1,8 +1,9 @@
-import { CardElement, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import './CheckOutForm.css'
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CheckOutForm = ({price,cart}) => {
     const stripe = useStripe();
@@ -13,6 +14,10 @@ const CheckOutForm = ({price,cart}) => {
     const [clientSecret,setClientSecret] =useState('')
     const [processing,setProcessing] =useState(false)
     const [transactionId,setTransactionId] =useState('')
+    const location =useLocation()
+    const navigate =useNavigate()
+
+    const  from = location.state?.from?.pathname || "/";
 
 
     useEffect(()=>{
@@ -90,6 +95,7 @@ setProcessing(true)
               if(res.data.insertResult.insertedId){
           //  console.log("hello")
               }
+              navigate(from, { replace: true });
             })
          
           }
@@ -118,11 +124,17 @@ setProcessing(true)
         <button className="btn btn-warning mt-3 w-16 text-gray-700" type="submit" disabled={!stripe || !clientSecret || processing}>
           Pay
         </button>
+        
       </form>
+      
+      
       {
         cardError && <p className="text-red-500">{cardError}</p>
       }
+      
       {transactionId && <p className="text-green-500">Transaction complete with transactionId:{transactionId}</p> }
+      
+      
         </>
     );
 };

@@ -26,7 +26,9 @@ const Payment = () => {
         <CheckOutForm cart={cart} price={price}>
             </CheckOutForm>
             </Elements>
+            
     </div>
+    
   );
 };
 
